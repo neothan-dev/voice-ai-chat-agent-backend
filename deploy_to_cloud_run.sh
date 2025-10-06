@@ -31,7 +31,7 @@ if ! gcloud auth list --filter=status:ACTIVE --format="value(account)" | grep -q
 fi
 
 # 设置项目ID
-PROJECT_ID="fluent-flame-465214-d3"
+PROJECT_ID=""
 echo "📋 设置项目ID: $PROJECT_ID"
 gcloud config set project $PROJECT_ID
 
