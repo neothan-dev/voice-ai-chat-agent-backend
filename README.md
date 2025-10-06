@@ -328,12 +328,6 @@ Log level can be configured via the `LOG_LEVEL` environment variable.
 
 This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details.
 
-Apache 2.0 provides:
-- ✅ Patent protection
-- ✅ Trademark protection  
-- ✅ Stronger legal safeguards
-- ✅ Enterprise-grade standards
-
 ## 🙏 Acknowledgements
 
 - [FastAPI](https://fastapi.tiangolo.com/) - Modern, fast web framework

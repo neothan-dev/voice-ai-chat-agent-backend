@@ -328,12 +328,6 @@ pytest --cov=api --cov-report=html
 
 本项目采用 Apache 2.0 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
 
-Apache 2.0 许可证提供了：
-- ✅ 专利保护
-- ✅ 商标保护  
-- ✅ 更强的法律保护
-- ✅ 企业级项目标准
-
 ## 🙏 致谢
 
 - [FastAPI](https://fastapi.tiangolo.com/) - 现代、快速的Web框架

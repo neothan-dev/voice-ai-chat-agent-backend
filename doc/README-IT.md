@@ -328,12 +328,6 @@ Il livello di log può essere configurato tramite la variabile d'ambiente `LOG_L
 
 Questo progetto è concesso sotto licenza Apache 2.0 - vedere [LICENSE](LICENSE) per dettagli.
 
-Apache 2.0 fornisce:
-- ✅ Protezione dei brevetti
-- ✅ Protezione del marchio  
-- ✅ Tutele legali più solide
-- ✅ Standard a livello enterprise
-
 ## 🙏 Ringraziamenti
 
 - [FastAPI](https://fastapi.tiangolo.com/) - Framework web moderno e veloce

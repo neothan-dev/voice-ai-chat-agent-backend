@@ -328,12 +328,6 @@ pytest --cov=api --cov-report=html
 
 本プロジェクトは Apache 2.0 ライセンス - 詳細は [LICENSE](LICENSE) を参照してください。
 
-Apache 2.0 は次を提供します:
-- ✅ 特許保護
-- ✅ 商標保護  
-- ✅ より強力な法的保護
-- ✅ エンタープライズレベルの標準
-
 ## 🙏 謝辞
 
 - [FastAPI](https://fastapi.tiangolo.com/) - モダンで高速な Web フレームワーク
