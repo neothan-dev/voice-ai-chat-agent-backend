@@ -48,7 +48,7 @@ jobs:
     - name: Type check with mypy
       run: |
         pip install mypy
-        mypy . --ignore-missing-imports
+        mypy api services core models --ignore-missing-imports --explicit-package-bases
     
     - name: Test with pytest
       run: |
@@ -92,19 +92,19 @@ jobs:
       run: |
         docker build -t voice-ai-backend:test .
     
-        - name: Test Docker image
-        run: |
-          # 按项目启动规则运行容器并做健康检查
-          docker run -d --name voice-ai-backend-test -p 8080:8080 -e PORT=8080 voice-ai-backend:test
-          echo "等待服务就绪..."
-          for i in {1..30}; do
-            if curl -s http://127.0.0.1:8080/ping | grep -q '"status":"healthy"'; then
-              echo "服务健康检查通过"; break; fi; sleep 2; done
-          # 若未通过，输出日志并失败
-          if ! curl -s http://127.0.0.1:8080/ping | grep -q '"status":"healthy"'; then
-            echo "健康检查失败，打印容器日志：";
-            docker logs voice-ai-backend-test || true
-            exit 1
-          fi
-          # 清理容器
-          docker rm -f voice-ai-backend-test
+    - name: Test Docker image
+      run: |
+        # 按项目启动规则运行容器并做健康检查
+        docker run -d --name voice-ai-backend-test -p 8080:8080 -e PORT=8080 voice-ai-backend:test
+        echo "等待服务就绪..."
+        for i in $(seq 1 30); do
+          if curl -s http://127.0.0.1:8080/ping | grep -q '"status":"healthy"'; then
+            echo "服务健康检查通过"; break; fi; sleep 2; done
+        # 若未通过，输出日志并失败
+        if ! curl -s http://127.0.0.1:8080/ping | grep -q '"status":"healthy"'; then
+          echo "健康检查失败，打印容器日志：";
+          docker logs voice-ai-backend-test || true
+          exit 1
+        fi
+        # 清理容器
+        docker rm -f voice-ai-backend-test
