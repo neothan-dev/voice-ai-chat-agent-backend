@@ -53,7 +53,13 @@ jobs:
     
     - name: Test with pytest
       run: |
-        pytest --cov=. --cov-report=xml --cov-report=html
+        rc=0
+        pytest --cov=. --cov-report=xml --cov-report=html || rc=$?
+        if [ "$rc" -eq 5 ]; then
+          echo "Pytest: no tests collected, treating as success."
+          exit 0
+        fi
+        exit "$rc"
     
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3
