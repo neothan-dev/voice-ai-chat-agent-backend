@@ -83,15 +83,13 @@ Thumbs.db
 demo/
 dev/data/code/
 convert_times.json
-doc/
+scripts/
 
 # Test files
 test/
 tests/
 *_test.py
 test_*.py
-
-scripts/
 
 # Docker
 .dockerignore
