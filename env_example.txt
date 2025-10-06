@@ -1,0 +1,92 @@
+# ===========================================
+# AI Voice Agent Backend 环境配置模板
+# ===========================================
+# 复制此文件为 .env 并填入您的实际配置值
+
+# ===========================================
+# 数据库配置
+# ===========================================
+# 默认数据库连接（用于初始化）
+DATABASE_URL_DEFAULT=postgresql://postgres:password@localhost:5432/postgres
+
+# 主数据库连接
+DATABASE_URL=postgresql://postgres:password@localhost:5432/voice_ai_db
+DATABASE_NAME=voice_ai_db
+
+# ===========================================
+# 服务器配置
+# ===========================================
+HOST=0.0.0.0
+PORT=8000
+DEBUG=True
+
+# ===========================================
+# AI 服务配置
+# ===========================================
+
+# OpenAI API - 必需
+# 获取地址: https://platform.openai.com/api-keys
+OPENAI_API_KEY=your_openai_api_key_here
+
+# HuggingFace API - 可选
+# 获取地址: https://huggingface.co/settings/tokens
+HUGGINGFACE_API_KEY=your_huggingface_api_key_here
+
+# ===========================================
+# Azure 认知服务配置
+# ===========================================
+# 获取地址: https://portal.azure.com/
+AZURE_SPEECH_KEY=your_azure_speech_key_here
+AZURE_EMOTION_KEY=your_azure_emotion_key_here
+AZURE_EMOTION_ENDPOINT=your_azure_emotion_endpoint_here
+
+# Azure 语音服务区域和语言设置
+DEFAULT_TTS_REGION=eastus
+DEFAULT_TTS_LANG=en
+DEFAULT_STT_REGION=eastus
+DEFAULT_STT_LANG=en
+
+# ===========================================
+# Google Cloud 配置
+# ===========================================
+# 下载服务账户密钥文件到 credential/ 目录
+# 获取地址: https://console.cloud.google.com/iam-admin/serviceaccounts
+GOOGLE_APPLICATION_CREDENTIALS=credential/your_google_cloud_credential.json
+
+# ===========================================
+# 翻译服务配置
+# ===========================================
+# DeepL API - 可选
+# 获取地址: https://www.deepl.com/pro-api
+DEEPL_API_KEY=your_deepl_api_key_here
+
+# 默认翻译目标语言
+DEFAULT_TRANSLATE_TARGET_LANG=en
+
+# ===========================================
+# 安全配置
+# ===========================================
+# JWT 认证密钥 - 必需
+# 建议使用强随机字符串，至少32位
+SECRET_KEY=your_server_authentication_secret_key_here
+
+# ===========================================
+# 日志配置
+# ===========================================
+LOG_LEVEL=INFO
+LOG_FILE=logs/app.log
+
+# ===========================================
+# 可选配置
+# ===========================================
+# CORS 允许的源（生产环境请修改为具体域名）
+# CORS_ORIGINS=["http://localhost:3000", "https://yourdomain.com"]
+
+# 会话超时时间（秒）
+# SESSION_TIMEOUT=3600
+
+# 文件上传大小限制（MB）
+# MAX_UPLOAD_SIZE=10
+
+# Redis 配置（如果使用缓存）
+# REDIS_URL=redis://localhost:6379/0

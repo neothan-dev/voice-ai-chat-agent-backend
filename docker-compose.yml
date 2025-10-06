@@ -1,0 +1,40 @@
+# Docker Compose配置 - 移除version字段以避免警告
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: voice_ai_chat_postgres
+    environment:
+      POSTGRES_DB: voice_ai_chat
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # 可选：pgAdmin管理界面
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: voice_ai_chat_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@voiceaichat.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  pgadmin_data:

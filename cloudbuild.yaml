@@ -1,0 +1,36 @@
+steps:
+  # 构建Docker镜像
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/voice-ai-chat-agent-backend:$COMMIT_SHA', '.']
+  
+  # 推送镜像到Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/voice-ai-chat-agent-backend:$COMMIT_SHA']
+  
+  # 部署到Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:465.0.0'
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - voice-ai-chat-agent-backend
+      - --image
+      - gcr.io/$PROJECT_ID/voice-ai-chat-agent-backend:$COMMIT_SHA
+      - --region
+      - asia-east1
+      - --platform
+      - managed
+      - --allow-unauthenticated
+      - --memory
+      - 2Gi
+      - --cpu
+      - '2'
+      - --max-instances
+      - '10'
+      - --set-env-vars
+      - DATABASE_URL_DEFAULT=postgresql://username:password/postgres?host=/cloudsql/fluent-flame-465214-d3:asia-east1:voice-ai-chat-db,DATABASE_URL=postgresql://username:password/voice_ai_chat_db?host=/cloudsql/fluent-flame-465214-d3:asia-east1:voice-ai-chat-db
+      - --set-cloudsql-instances
+      - fluent-flame-465214-d3:asia-east1:voice-ai-chat-db
+
+images:
+  - 'gcr.io/$PROJECT_ID/voice-ai-chat-agent-backend:$COMMIT_SHA'

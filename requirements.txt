@@ -1,0 +1,73 @@
+# Web 框架
+fastapi==0.116.1
+uvicorn[standard]==0.35.0
+starlette==0.47.2
+httpx[socks]==0.27.0
+
+# 数据库
+sqlmodel==0.0.16
+passlib[bcrypt]==1.7.4
+bcrypt==3.2.2
+psycopg2-binary==2.9.9
+alembic==1.13.1
+
+# JWT认证
+PyJWT==2.8.0
+
+# 日志
+loguru==0.7.2
+
+# AI/ML
+transformers==4.41.2
+torch==2.7.1
+soundfile==0.12.1
+numpy==1.26.4
+scipy==1.16.0  # 更新到实际安装的版本
+lime==0.2.0.1
+shap==0.45.0
+
+# NLP/翻译
+deep-translator==1.11.4
+deepl==1.22.0
+openai==1.58.0
+requests==2.32.3
+
+# 语音/云服务
+# azure-cognitiveservices-speech==1.37.0  # 已移除，改用REST API
+# 如需使用SDK方案，请取消注释上一行并注释掉REST API相关代码
+google-cloud-speech==2.26.0
+google-cloud-texttospeech==2.16.2
+google-cloud-translate==3.14.0
+
+# 数据处理和可视化
+pandas==2.3.1
+openpyxl==3.1.2
+matplotlib==3.10.3
+scikit-learn==1.7.1
+scikit-image==0.25.2
+numba==0.61.2
+
+# 工具库
+python-dotenv==1.0.1
+PyYAML==6.0.2
+tqdm==4.67.1
+filelock==3.18.0
+
+# 网络和HTTP
+httpx==0.27.0
+idna==2.10
+anyio==3.7.1
+urllib3==2.5.0
+certifi==2025.7.14
+
+# 图像处理
+pillow==11.3.0
+imageio==2.37.0
+tifffile==2025.6.11
+
+# 其他依赖
+beautifulsoup4==4.13.4
+charset-normalizer==3.4.2
+distro==1.9.0
+cloudpickle==3.1.1
+slicer==0.0.7

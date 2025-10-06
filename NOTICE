@@ -1,0 +1,21 @@
+AI Voice Agent Backend
+Copyright 2025 Neothan
+
+This product includes software developed by the Neothan.
+
+This product may include third-party software components. Please refer to the 
+individual component licenses for details.
+
+Third-party components and their licenses:
+- FastAPI: MIT License
+- SQLModel: MIT License  
+- OpenAI Python SDK: MIT License
+- Google Cloud SDK: Apache 2.0 License
+- Azure SDK: MIT License
+- Transformers: Apache 2.0 License
+- PyTorch: BSD License
+- Pandas: BSD License
+- NumPy: BSD License
+
+For the complete list of dependencies and their licenses, please refer to 
+the requirements.txt file and the individual package documentation.
